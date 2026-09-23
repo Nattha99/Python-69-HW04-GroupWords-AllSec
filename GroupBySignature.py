@@ -1,5 +1,14 @@
 def group_by_signature(words: list) -> list:
-    pass
+    from collections import defaultdict
+    groups = defaultdict(list)
+    
+    for word in words:
+        if not word or word.isspace():
+            continue
+        signature = ''.join(sorted(word))
+        groups[signature].append(word)
+
+    return list(groups.values())
 
 if __name__ == "__main__":
     # Example 1
